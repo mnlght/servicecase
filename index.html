@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Shower Presentation Engine</h1>
+        <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <section class="slide">
+        <h1>Service layer vs Use Case</h1>
+        <p>Альтернативный подход к декомпозиции в рамках ФВ</p>
+    </section>
+
+    <section class="slide">
+        <h1>If (ctrl+v pattern) - panic</h1>
+        <ul>
+            <li class="next">И Service Layer и UseCase - это паттерны</li>
+            <li class="next">Паттерн - это не конкретный код, а концепция</li>
+            <li class="next">Паттерн там, где он не нужен - смертный грех</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Пример греха</h1>
+        <ul>
+            <li class="next">DTO</li>
+            <li class="next">(в котором!) Builder (без цепочки)</li>
+            <li class="next">(и) Director</li>
+            <li class="next">а задача была - получить список команд</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/dtoBuilder1.jpg">
+    </section>
+
+    <section class="slide">
+        <h1>Паттерны бывают не только проектирования</h1>
+        <ul>
+            <li class="next">Паттерны проектирования</li>
+            <li class="next">Архитектурные паттерны</li>
+            <li class="next">Идиомы</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Архитектурные паттерны</h1>
+        <ul>
+            <li class="next">Шаблоны высшего уровня</li>
+            <li class="next">Декомпозиция модулей/компонентов и их взаимодействие</li>
+            <li class="next">Помощь в понятии устройства продукта</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Для справки - Идиомы</h1>
+        <ul>
+            <li>Golang - канал, как мьютекс</li>
+            <li>c++ - интеллектуальные указатели</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Service layer</h1>
+        <p>Это шаблон проектирования, который инкапсулирует бизнес логику вашего приложения и определяет границу и набор допустимых операций с точки зрения взаимодействующих с ним клиентов.</p>
+    </section>
+    <section class="slide">
+        <h1>Service layer</h1>
+        <h3>В идеале</h3>
+        <img class="cover" src="images/servicelayer.jpg">
+    </section>
+
+    <section class="slide">
+        <h1>Service layer</h1>
+        <h3>С чем должен бороться?</h3>
+        <ul>
+            <li class="next">Логика в контроллерах и моделях в MVC</li>
+            <li class="next">Разделение бизнес-логики и логики приложения</li>
+            <li class="next">Дублирование кода</li>
+            <li class="next">Определение границ модуля, набор доступных операций для клиентских уровней</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Service layer</h1>
+        <h3>К чему может привести?</h3>
+        <ul>
+            <li class="next">Превращение сервис-класса в god-класс (с постепенным добавлением логики в 1 файл)</li>
+            <li class="next">Циклический импорт</li>
+            <li class="next">Невозможность определить "главный" сервис</li>
+            <li class="next">Нарушение SoP на всех уровнях приложения</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/zlo.jpg">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/servicelayerAdd.jpg">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/serviceTrash.jpg">
+    </section>
+    <section class="slide">
+        <h1>Use Case</h1>
+        <h3>Варианты использования</h3>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/useCaseQuestion.jpg">
+    </section>
+    <section class="slide">
+        <h1>Use Case - определение 1</h1>
+        <p>В разработке программного обеспечения и систем вариант использования — это список действий или шагов событий, обычно определяющих взаимодействие между ролью (известной в унифицированном языке моделирования как субъект) и системой для достижения цели.</p>
+    </section>
+    <section class="slide">
+        <h1>Use Case - определение 2</h1>
+        <p>Эти варианты использования организуют поток данных к объектам и от них и предписывают этим объектам использовать свои критические бизнес-правила для достижения целей варианта использования.</p>
+    </section>
+    <section class="slide">
+        <h1>Use Case - определение 3</h1>
+        <p>UseCase - это бизнес-логика, которую вы можете описать простым предложением.</p>
+    </section>
+    <section class="slide">
+        <h1>What's the difference?</h1>
+        <ul>
+            <li class="next">Вариант использования — это значимая операция, выполняемая вашим приложением.</li>
+            <li class="next">В рамках этого он может вызывать другие подоперации в других ограниченных контекстах.</li>
+            <li class="next">Эти подоперации реализуются как сервисы приложений в монолитных приложениях и имеют смысл только как часть варианта использования.</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>What's the difference?</h1>
+        <ul>
+            <li class="next">Сервисы - это хорошие кандидаты на роль микросервисов в микросервисной архитектуре.</li>
+            <li class="next">Вариант использования, в свою очередь, становится отдельным микросервисом, вызывающим эти микросервисы.</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>What's the difference?</h1>
+        <ul>
+            <li class="next">Сервисы - это хорошие кандидаты на роль микросервисов в микросервисной архитектуре.</li>
+            <li class="next">Вариант использования, в свою очередь, становится отдельным микросервисом, вызывающим эти микросервисы.</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Немного практики</h1>
+    </section>
+    <section class="slide">
+        <h1>Дано</h1>
+        <ul>
+            <li class="next">Сервис бронирования</li>
+            <li class="next">REST</li>
+            <li class="next">Монолит</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Проектирование</h1>
+        <ul>
+            <li class="next">Controller - собирает информацию</li>
+            <li class="next">Контекст Бронирования - Use Case - ReserveRoom</li>
+            <li class="next">Контекст Доступности - Service - AvailabilityService</li>
+            <li class="next">Контекст Доступности - Service - PaymentService</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Show me the code 1</h1>
+    </section>
+    <section class="slide">
+        <h1>Show me the code 2</h1>
+    </section>
+    <section class="slide">
+        <h1>Рефакторинг</h1>
+    </section>
+
+    <section class="slide">
+        <h1>DDD vs CA</h1>
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="node_modules/@shower/core/dist/shower.js"></script>
+    <!-- Copyright © 2023 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
