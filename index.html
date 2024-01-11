@@ -49,6 +49,7 @@
         <ul>
             <li class="next">Паттерны проектирования</li>
             <li class="next">Архитектурные паттерны</li>
+            <li class="next">Database Access Design Patterns</li>
             <li class="next">Идиомы</li>
         </ul>
     </section>
@@ -61,6 +62,14 @@
         </ul>
     </section>
     <section class="slide">
+        <h1>Database Access Design Patterns</h1>
+        <ul>
+            <li class="next">Identity Map - изменения в объектах</li>
+            <li class="next">Data Mapper - объектное представление запроса</li>
+            <li class="next">Составные части ORM</li>
+        </ul>
+    </section>
+    <section class="slide">
         <h1>Для справки - Идиомы</h1>
         <ul>
             <li>Golang - канал, как мьютекс</li>
@@ -69,12 +78,14 @@
     </section>
     <section class="slide">
         <h1>Service layer</h1>
-        <p>Это шаблон проектирования, который инкапсулирует бизнес логику вашего приложения и определяет границу и набор допустимых операций с точки зрения взаимодействующих с ним клиентов.</p>
+        <p class="next">Это шаблон проектирования, который инкапсулирует бизнес логику вашего приложения и определяет границу и набор допустимых операций с точки зрения взаимодействующих с ним клиентов.</p>
     </section>
     <section class="slide">
         <h1>Service layer</h1>
         <h3>В идеале</h3>
-        <img class="cover" src="images/servicelayer.jpg">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/servicelayerAdd.JPG">
     </section>
 
     <section class="slide">
@@ -92,19 +103,56 @@
         <h3>К чему может привести?</h3>
         <ul>
             <li class="next">Превращение сервис-класса в god-класс (с постепенным добавлением логики в 1 файл)</li>
-            <li class="next">Циклический импорт</li>
-            <li class="next">Невозможность определить "главный" сервис</li>
-            <li class="next">Нарушение SoP на всех уровнях приложения</li>
         </ul>
     </section>
     <section class="slide">
-        <img class="cover" src="images/zlo.jpg">
+        <img class="cover" src="images/addadd.JPG">
     </section>
     <section class="slide">
-        <img class="cover" src="images/servicelayerAdd.jpg">
+        <h1>Service layer</h1>
+        <h3>К чему может привести?</h3>
+        <ul>
+            <li>Превращение сервис-класса в god-класс (с постепенным добавлением логики в 1 файл)</li>
+            <li class="next">Циклический импорт</li>
+        </ul>
     </section>
     <section class="slide">
-        <img class="cover" src="images/serviceTrash.jpg">
+        <img class="cover" src="images/cycleimport.JPG">
+    </section>
+    <section class="slide">
+        <h1>Service layer</h1>
+        <h3>К чему может привести?</h3>
+        <ul>
+            <li>Превращение сервис-класса в god-класс (с постепенным добавлением логики в 1 файл)</li>
+            <li>Циклический импорт</li>
+            <li class="next">Невозможность определить "главный" сервис</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/entrypoint.JPG">
+    </section>
+    <section class="slide">
+        <h1>Service layer</h1>
+        <h3>К чему может привести?</h3>
+        <ul>
+            <li>Превращение сервис-класса в god-класс (с постепенным добавлением логики в 1 файл)</li>
+            <li>Циклический импорт</li>
+            <li>Невозможность определить "главный" сервис</li>
+            <li class="next">Нарушение SoP на всех уровнях приложения</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/servicelayerAdd.JPG">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/serviceTrash.JPG">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/resp.JPG">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/resp2.JPG">
     </section>
     <section class="slide">
         <h1>Use Case</h1>
@@ -119,12 +167,16 @@
     </section>
     <section class="slide">
         <h1>Use Case - определение 2</h1>
-        <p>Эти варианты использования организуют поток данных к объектам и от них и предписывают этим объектам использовать свои критические бизнес-правила для достижения целей варианта использования.</p>
+        <p>Варианты использования организуют поток данных к объектам и от них и предписывают этим объектам использовать свои критические бизнес-правила для достижения целей варианта использования.</p>
     </section>
     <section class="slide">
         <h1>Use Case - определение 3</h1>
         <p>UseCase - это бизнес-логика, которую вы можете описать простым предложением.</p>
     </section>
+    <section class="slide">
+        <img class="cover" src="images/usecase3.JPG">
+    </section>
+
     <section class="slide">
         <h1>What's the difference?</h1>
         <ul>
@@ -134,11 +186,7 @@
         </ul>
     </section>
     <section class="slide">
-        <h1>What's the difference?</h1>
-        <ul>
-            <li class="next">Сервисы - это хорошие кандидаты на роль микросервисов в микросервисной архитектуре.</li>
-            <li class="next">Вариант использования, в свою очередь, становится отдельным микросервисом, вызывающим эти микросервисы.</li>
-        </ul>
+        <img class="cover" src="images/usecase1.JPG">
     </section>
     <section class="slide">
         <h1>What's the difference?</h1>
@@ -146,6 +194,9 @@
             <li class="next">Сервисы - это хорошие кандидаты на роль микросервисов в микросервисной архитектуре.</li>
             <li class="next">Вариант использования, в свою очередь, становится отдельным микросервисом, вызывающим эти микросервисы.</li>
         </ul>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/usecase2.JPG">
     </section>
     <section class="slide">
         <h1>Немного практики</h1>
@@ -168,22 +219,106 @@
         </ul>
     </section>
     <section class="slide">
-        <h1>Show me the code 1</h1>
+        <img class="cover" src="images/context.JPG">
     </section>
     <section class="slide">
-        <h1>Show me the code 2</h1>
+        <h1>Show me the code</h1>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/structure.png">
+    </section>
+    <section class="slide">
+        <h3>Сервис может существовать только как часть варианта использования</h3>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/reserveCode.png">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/cont.png">
     </section>
     <section class="slide">
         <h1>Рефакторинг</h1>
+        <p>Модуль Whishlist</p>
     </section>
-
+    <section class="slide">
+        <img class="cover" src="images/lukoil1.png">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/whishlistcontr.png">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/whishlistService.png">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/whishlistfacade.png">
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/magic.png">
+    </section>
+    <section class="slide">
+        <h1>Плюсы реализации</h1>
+        <ul>
+            <li class="next">Есть важный интерфейс</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Минусы реализации</h1>
+        <ul>
+            <li class="next">Фасад - не фасад</li>
+            <li class="next">Фасад "взял на себя слишком много"</li>
+            <li class="next">Фабрика выдаёт 1 из 2ух объектов по ифу</li>
+            <li class="next">Невозможность тестирования</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/whishlistafter.png">
+    </section>
+    <section class="slide">
+        <h1>Пояснения</h1>
+        <ul>
+            <li class="next">Определить, какой storage использовать, при инициализации UseCase</li>
+            <li class="next">Для проверки наличия отдельный сервис</li>
+            <li class="next">Действия со storage (rep) должны происходить прозрачно в UseCase или сервисе</li>
+            <li class="next">Роуты getCount и getProductIds может обслужить репозиторий без бизнес-логики, т.к нет параметров, выносим их в usecase GetInfo</li>
+            <li class="next">Если нас спросят, что делает наш модуль, мы откроем папку usecase</li>
+        </ul>
+    </section>
     <section class="slide">
         <h1>DDD vs CA</h1>
     </section>
-
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
+    <section class="slide">
+        <img class="cover" src="images/enemies.jpg">
+    </section>
+    <section class="slide">
+        <h1>DDD vs CA</h1>
+        <p class="next">Пора себе признаться - никто из нас не пишет ни по DDD, ни по CA.</p>
+        <p class="next">Поэтому мы можем позволить себе скрестить практики.</p>
+    </section>
+    <section class="slide">
+        <img class="cover" src="images/friends.jpg">
+    </section>
+    <section class="slide">
+        <h1>Плюсы</h1>
+        <ul>
+            <li class="next">Сервисы, из-за контекстуальной нагрузки с минимальным шансом могут быть импортированы друг в друга</li>
+            <li class="next">Sop. контекстуально-"нативно" сервисы соблюдают sop</li>
+            <li class="next">Всё может при необходимости выделиться в микросервисы</li>
+            <li class="next">Пройдя по папке usecase - сможем объяснить аналитику/клиенту/qa, что делает наш модуль/приложение</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Гайд</h1>
+        <ul>
+            <li class="next">Использовать для бизнес-логики не сервис, а юзкейс</li>
+            <li class="next">Логически разбить работу своего юзкейса на сервисы</li>
+            <li class="next">Если нет - пройтись по модулям проекта (поиск по именам) и поискать сервисы, которые занимаются тем же самым (поиск по именам)</li>
+            <li class="next">Спросить себя, получится ли импортировать этот модуль в свой модуль?</li>
+            <li class="next">Если да - импортировать, если нет - работать в формате uc - service</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Конец</h1>
+    </section>
 
     <div class="progress"></div>
 
